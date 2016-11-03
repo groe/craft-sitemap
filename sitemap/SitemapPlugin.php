@@ -94,4 +94,12 @@ class SitemapPlugin extends BasePlugin
             ),
         );
     }
+
+    /**
+     * {@inheritdoc} IPlugin::getReleaseFeedUrl()
+     */
+    public function getReleaseFeedUrl()
+    {
+        return 'https://raw.githubusercontent.com/groe/craft-sitemap/master/changelog.json';
+    }
 }
