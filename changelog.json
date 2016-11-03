@@ -1,7 +1,7 @@
 [
   {
     "version": "1.0.0",
-    "downloadUrl": "https://github.com/groe/craft-sitemap/archive/1.0.0.zip",
+    "downloadUrl": "https://github.com/groe/craft-sitemap/archive/v1.0.0.zip",
     "date": "2016-11-04T00:15:00+01:00",
     "notes": [
       "[Fixed] Missing <url> tags for multi-locale multi-domain sites",
