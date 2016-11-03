@@ -1,0 +1,13 @@
+# Change Log
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/)
+and starting with version 1.0.0 this project adheres to
+[Semantic Versioning](http://semver.org/).
+
+## [Unreleased]
+### Fixed
+- Fix [missing <url> tags](#17) for multi-locale multi-domain sites
+- Fix error thrown by Craft\SitemapPlugin::prepSettings()
+- Update addCategoryGroup in SitemapService.php
+- Remove select limit on entries fetched with EntryModel
