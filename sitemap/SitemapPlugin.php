@@ -17,7 +17,7 @@ class SitemapPlugin extends BasePlugin
      */
     public function getVersion()
     {
-        return 'v1.0.0-alpha.4';
+        return 'v1.0.0';
     }
 
     /**
@@ -93,5 +93,13 @@ class SitemapPlugin extends BasePlugin
                 'action' => 'sitemap/sitemap/output',
             ),
         );
+    }
+
+    /**
+     * {@inheritdoc} IPlugin::getReleaseFeedUrl()
+     */
+    public function getReleaseFeedUrl()
+    {
+        return 'https://raw.githubusercontent.com/groe/craft-sitemap/master/changelog.json';
     }
 }
