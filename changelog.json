@@ -5,7 +5,7 @@
     "date": "2016-11-04T00:15:00+01:00",
     "notes": [
       "[Fixed] Missing <url> tags for multi-locale multi-domain sites",
-      "[Fixed] Error thrown by Craft\SitemapPlugin::prepSettings()",
+      "[Fixed] Error thrown by Craft\\SitemapPlugin::prepSettings()",
       "[Fixed] Update addCategoryGroup in SitemapService.php",
       "[Fixed] Remove select limit on entries fetched with EntryModel"
     ]
