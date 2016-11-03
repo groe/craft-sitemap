@@ -9,5 +9,5 @@
       "[Fixed] Update addCategoryGroup in SitemapService.php",
       "[Fixed] Remove select limit on entries fetched with EntryModel"
     ]
-  },
+  }
 ]
