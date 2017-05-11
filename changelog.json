@@ -4,9 +4,9 @@
     "downloadUrl": "https://github.com/groe/craft-sitemap/archive/v1.1.0.zip",
     "date": "2017-05-11T13:58:00+01:00",
     "notes": [
-      "[Added] option to conditionally include/exclude entries based on any lightswitch field",
-      "[Added] composer file",
-      "[Fixed] Failing Schematic imports"
+      "[Added] Added option to conditionally include/exclude entries based on any lightswitch field",
+      "[Added] Added composer file",
+      "[Fixed] Fixed Failing Schematic imports"
     ]
   },
   {
