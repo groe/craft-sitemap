@@ -47,7 +47,8 @@ class SitemapService extends BaseApplicationComponent
             if (!empty($settings['sections'][$section->id])) {
                 $changefreq = $settings['sections'][$section->id]['changefreq'];
                 $priority = $settings['sections'][$section->id]['priority'];
-                $this->addSection($section, $changefreq, $priority);
+                $includeiffield = $settings['sections'][$section->id]['includeiffield'];
+                $this->addSection($section, $changefreq, $priority, $includeiffield);
             }
         }
 
@@ -142,10 +143,13 @@ class SitemapService extends BaseApplicationComponent
      * @param string       $changefreq
      * @param string       $priority
      */
-    public function addSection(SectionModel $section, $changefreq = null, $priority = null)
+    public function addSection(SectionModel $section, $changefreq = null, $priority = null, $includeiffield = null)
     {
         $criteria = craft()->elements->getCriteria(ElementType::Entry);
         $criteria->section = $section;
+        if($includeiffield != null && !empty($includeiffield)) {
+            $criteria->$includeiffield = 1;
+        }
         foreach ($criteria->find(['limit' => -1]) as $element) {
             $this->addElement($element, $changefreq, $priority);
         }

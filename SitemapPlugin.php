@@ -79,6 +79,7 @@ class SitemapPlugin extends BasePlugin
                 $settings['sections'][$section->id] = array(
                     'changefreq' => $input['changefreq'][$section->id],
                     'priority' => $input['priority'][$section->id],
+                    'includeiffield' => $input['includeiffield'][$section->id],
                 );
             }
         }
