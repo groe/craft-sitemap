@@ -147,6 +147,7 @@ class SitemapService extends BaseApplicationComponent
     {
         $criteria = craft()->elements->getCriteria(ElementType::Entry);
         $criteria->section = $section;
+        $criteria->limit = 0;
         if($includeiffield != null && !empty($includeiffield)) {
             $criteria->$includeiffield = 1;
         }
