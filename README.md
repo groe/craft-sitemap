@@ -1,3 +1,6 @@
+**NOTE: This is a fork of the currently unmaintained [craft-sitemap plugin by @joshuabaker](https://github.com/joshuabaker/craft-sitemap).**
+The original author has not responded to [questions regarding his plans for the future of the project](https://github.com/joshuabaker/craft-sitemap/issues/28). So feel free to use the fork while we (hopefully) merge it back some day.
+
 # Craft Sitemap
 
 A simple plugin for [Craft](http://craftcms.com) that generates a [sitemap.xml](http://www.sitemaps.org/) based on enabled sections.

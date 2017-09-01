@@ -17,7 +17,7 @@ class SitemapPlugin extends BasePlugin
      */
     public function getVersion()
     {
-        return 'v1.0.0';
+        return '1.1.0';
     }
 
     /**
@@ -62,6 +62,12 @@ class SitemapPlugin extends BasePlugin
      */
     public function prepSettings($input)
     {
+        // early exit if $input is already a complete settings array
+        // like in a Schematic import
+        if (!array_key_exists('enabled', $input) && isset($input['sections']) && is_array($input['sections'])) {
+            return $input;
+        }
+        
         // We’re rewriting every time
         $settings = $this->defineSettings();
 
@@ -73,6 +79,7 @@ class SitemapPlugin extends BasePlugin
                 $settings['sections'][$section->id] = array(
                     'changefreq' => $input['changefreq'][$section->id],
                     'priority' => $input['priority'][$section->id],
+                    'includeiffield' => $input['includeiffield'][$section->id],
                 );
             }
         }
