@@ -11,6 +11,10 @@ abstract class Sitemap_BaseModel extends BaseModel
      */
     public function validate($attributes = null, $clearErrors = true)
     {
+        if ($attributes === null) {
+            $attributes = $this->getAttributes();
+        }
+
         $validate = parent::validate($attributes, $clearErrors);
 
         if (!$validate && craft()->config->get('devMode')) {
