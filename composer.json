@@ -1,9 +1,34 @@
 {
 	"name": "groe/craft-sitemap",
 	"description": "Craft plugin to generate a sitemap.",
+	"version": "2.0.0",
 	"license": "MPL 2.0",
 	"type": "craft-plugin",	
-	"require": {
-		"composer/installers": "~1.2"		
-	}
+  "authors": [
+    {
+      "name": "Joshua Baker",
+      "url": "http://joshuabaker.com"
+    },
+    {
+      "name": "Benjamin Grössing",
+      "url": "https://byteq.com"
+    },
+    {
+      "name": "Moritz Friedrich",
+      "url": "https://www.moritzfriedrich.com"
+    }
+  ],
+  "require":     {
+    "craftcms/cms": "^3.0.0-beta.27"
+  },
+  "autoload":    {
+    "psr-4": {
+      "groe\\sitemap\\": "src/"
+    }
+  },
+  "extra":       {
+    "name":   "Sitemap",
+    "handle": "sitemap",
+    "class":  "groe\\sitemap\\Sitemap"
+  }
 }
