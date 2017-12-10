@@ -4,7 +4,17 @@
 	"version": "1.0.0",
 	"license": "MPL 2.0",
 	"type": "craft-plugin",	
-	"require": {
-		"composer/installers": "~1.2"		
-	}
+  "require":     {
+    "craftcms/cms": "^3.0.0-beta.27"
+  },
+  "autoload":    {
+    "psr-4": {
+      "groe\\sitemap\\": "src/"
+    }
+  },
+  "extra":       {
+    "name":   "Sitemap",
+    "handle": "sitemap",
+    "class":  "groe\\sitemap\\Sitemap"
+  }
 }
