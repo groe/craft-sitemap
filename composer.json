@@ -1,9 +1,15 @@
 {
 	"name": "groe/craft-sitemap",
 	"description": "Craft plugin to generate a sitemap.",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"license": "MPL 2.0",
 	"type": "craft-plugin",	
+  "authors": [
+    {
+      "name": "Joshua Baker",
+      "url": "http://joshuabaker.com"
+    }
+  ],
   "require":     {
     "craftcms/cms": "^3.0.0-beta.27"
   },
