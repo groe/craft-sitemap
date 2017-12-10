@@ -1,13 +1,13 @@
 {% import '_includes/forms' as forms %}
 
 {% set frequencyOptions = {
-  'always': 'always',
-  'hourly': 'hourly',
-  'daily': 'daily',
-  'weekly': 'weekly',
-  'monthly': 'monthly',
-  'yearly': 'yearly',
-  'never': 'never',
+  always:  'always',
+  hourly:  'hourly',
+  daily:   'daily',
+  weekly:  'weekly',
+  monthly: 'monthly',
+  yearly:  'yearly',
+  never:   'never',
 } %}
 
 {% set priorityOptions = {
@@ -24,67 +24,66 @@
   '0.0': '0.0',
 } %}
 
-{% set includeIfFieldOptions = {"": ""} %}
+{% set includeIfFieldOptions = { '': '' } %}
 
 {% for field in craft.fields.getAllFields() %}
-  {% if field.type == "Lightswitch" %}
-    {% set includeIfFieldOptions = includeIfFieldOptions|merge({(field.handle) : field.name}) %}
+  {% if field.type == 'Lightswitch' %}
+    {% set includeIfFieldOptions = includeIfFieldOptions | merge( { (field.handle) : field.name } ) %}
   {% endif %}
 {% endfor %}
-
 <table class="data fullwidth">
   <thead>
-  <th>{{ 'Enabled'|t }}</th>
-  <th>{{ 'Section'|t }} </th>
-  <th>{{ 'URL Format'|t }}</th>
-  <th>{{ 'Include if...'|t }}</th>
-  <th>{{ 'Entries'|t }}</th>
-  <th>{{ 'Change Frequency'|t }}</th>
-  <th>{{ 'Priority'|t }}</th>
+    <th>{{ 'Enabled'          | translate( 'sitemap' ) }}</th>
+    <th>{{ 'Section'          | translate( 'sitemap' ) }} </th>
+    <th>{{ 'URL Format'       | translate( 'sitemap' ) }}</th>
+    <th>{{ 'Include if...'    | translate( 'sitemap' ) }}</th>
+    <th>{{ 'Entries'          | translate( 'sitemap' ) }}</th>
+    <th>{{ 'Change Frequency' | translate( 'sitemap' ) }}</th>
+    <th>{{ 'Priority'         | translate( 'sitemap' ) }}</th>
   </thead>
   <tbody>
   {% for section in sections %}
     <tr>
       <td>
-        {{- forms.checkbox({
-          name: "enabled[#{section.id}]",
-          value: true,
-          checked: settings.sections[section.id] is defined
-        }) -}}
+        {{- forms.checkbox( {
+          name:    "enabled[#{section.id}]",
+          value:   true,
+          checked: settings.sections[ section.id ] is defined
+        } ) -}}
       </td>
       <td>
         {{- section -}}
       </td>
       <td dir="ltr">
         {%- if section.isHomepage() -%}
-          <div data-icon="home" title="{{ 'Homepage'|t }}"></div>
+          <div data-icon="home" title="{{ 'Homepage' | translate( 'sitemap' ) }}"></div>
         {%- else -%}
           {{ section.urlFormat }}
         {%- endif -%}
       </td>
       <td>
-        {{- forms.selectField({
-          name: "includeiffield[#{section.id}]",
+        {{- forms.selectField( {
+          name:    "includeiffield[#{section.id}]",
           options: includeIfFieldOptions,
-          value: settings.sections[section.id].includeiffield|default("")
-        }) -}}
+          value:   settings.sections[ section.id ].includeiffield | default('')
+        } ) -}}
       </td>
       <td>
-        {{- craft.entries.section(section).total() -}}
+        {{- craft.entries.section( section ).total() -}}
       </td>
       <td>
-        {{- forms.selectField({
-          name: "changefreq[#{section.id}]",
+        {{- forms.selectField( {
+          name:    "changefreq[#{section.id}]",
           options: frequencyOptions,
-          value: settings.sections[section.id].changefreq|default('weekly')
-        }) -}}
+          value:   settings.sections[ section.id ].changefreq | default( 'weekly' )
+        } ) -}}
       </td>
       <td>
-        {{- forms.selectField({
-          name: "priority[#{section.id}]",
+        {{- forms.selectField( {
+          name:    "priority[#{section.id}]",
           options: priorityOptions,
-          value: settings.sections[section.id].priority|default(section.isHomepage() ? '1.0' : '0.5')
-        }) -}}
+          value:   settings.sections[ section.id ].priority | default( section.isHomepage() ? '1.0' : '0.5' )
+        } ) -}}
       </td>
     </tr>
   {% endfor %}

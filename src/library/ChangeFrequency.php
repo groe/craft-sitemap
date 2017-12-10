@@ -1,8 +1,8 @@
 <?php
 
-namespace Craft;
+namespace groe\sitemap\library;
 
-abstract class Sitemap_ChangeFrequency extends BaseEnum {
+abstract class ChangeFrequency extends BaseEnum {
     const Always  = 'always';
 
     const Daily   = 'daily';

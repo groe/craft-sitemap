@@ -17,6 +17,7 @@ use yii\base\Event;
  * @package groe\sitemap
  */
 class Sitemap extends Plugin {
+
     /**
      * @var bool
      */

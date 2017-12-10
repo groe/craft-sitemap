@@ -1,8 +1,9 @@
 <?php
 
-namespace Craft;
+namespace groe\sitemap\library;
 
-abstract class Sitemap_Priority extends BaseEnum {
+abstract class Priority extends BaseEnum {
+
     /**
      * {@inheritdoc} BaseEnum::isValidValue()
      */
