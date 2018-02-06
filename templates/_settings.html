@@ -32,6 +32,12 @@
   {% endif %}
 {% endfor %}
 
+<h2>Section Settings</h2>
+
+<p>
+  Choose which sections should be included in the sitemap.
+</p>
+
 <table class="data fullwidth">
   <thead>
     <th>{{ 'Enabled'|t }}</th>
@@ -90,3 +96,28 @@
     {% endfor %}
   </tbody>
 </table>
+
+<hr>
+
+{% if craft.i18n.siteLocales | length > 1 %}
+
+  <h2>Locale Settings</h2>
+
+  {{ forms.lightswitchField({
+    label:        "Only include pages for the current locale",
+    name:         "currentLocaleOnly",
+    instructions: "Recommended for multi-domain setups.",
+    on:           settings.currentLocaleOnly,
+    errors:       settings.getErrors('currentLocaleOnly'),
+    first: true
+  }) }}
+
+  {{ forms.lightswitchField({
+    label:        "Link between locales",
+    name:         "addAlternateUrls",
+    instructions: "Add <code>&lt;xhtml:link ...&gt;</code> tags for each entry locale. Recommended.",
+    on:           settings.addAlternateUrls,
+    errors:       settings.getErrors('addAlternateUrls')
+  }) }}
+
+{% endif %}

@@ -83,7 +83,7 @@ $lastmod = new DateTime('now');
 craft()->sitemap->addUrl($loc, $lastmod, Sitemap_ChangeFrequency::Yearly, 0.1);
 ```
 
-##### `addElement(BaseElementModel $element, [$changefreq, [$priority]])`
+##### `addElement(BaseElementModel $element, [$changefreq, [$priority, [$allLocales, [$alternateUrls]]]])`
 Adds an element to the sitemap.
 
 ```php
@@ -91,7 +91,7 @@ $element = craft()->elements->getElementById(2);
 craft()->sitemap->addElement($element, Sitemap_ChangeFrequency::Daily, 1.0);
 ```
 
-##### `addSection(SectionModel $section, [$changefreq, [$priority]])`
+##### `addSection(SectionModel $section, [$changefreq, [$priority, [$allLocales, [$alternateUrls]]]])`
 Adds all entries in the section to the sitemap.
 
 ```php
@@ -99,7 +99,7 @@ $section = craft()->sections->getSectionByHandle('homepage');
 craft()->sitemap->addSection($section, Sitemap_ChangeFrequency::Weekly, 1.0);
 ```
 
-##### `addCategoryGroup(CategoryGroupModel $categoryGroup, [$changefreq, [$priority]])`
+##### `addCategoryGroup(CategoryGroupModel $categoryGroup, [$changefreq, [$priority, [$allLocales, [$alternateUrls]]]])`
 Adds all categories in the group to the sitemap.
 
 ```php
