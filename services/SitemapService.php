@@ -116,7 +116,7 @@ class SitemapService extends BaseApplicationComponent
      * @param string           $changefreq
      * @param string           $priority
      */
-    public function addElement(BaseElementModel $element, $changefreq = null, $priority = null, $allLocales = false, $alternateUrls = false)
+    public function addElement(BaseElementModel $element, $changefreq = null, $priority = null, $currentLocaleOnly = false, $alternateUrls = false)
     {
         $locales = craft()->elements->getEnabledLocalesForElement($element->id);
         $locale_urls = array();
@@ -124,7 +124,18 @@ class SitemapService extends BaseApplicationComponent
             $locale_urls[$locale] = craft()->sitemap->getElementUrlForLocale($element, $locale);
         }
 
-        if($allLocales) {
+        if($currentLocaleOnly) {
+            // Render sitemap for one specific locale only (single locale domain), e.g. example.de/sitemap.xml
+            
+            $url = $this->addUrl($element->url, $element->dateUpdated, $changefreq, $priority);
+
+            if($alternateUrls) {
+                foreach ($locale_urls as $locale => $locale_url) {
+                    $url->addAlternateUrl($locale, $locale_url);
+                }
+            }
+        }
+        else {
             // Render sitemap for all locales (multi-locale domain), e.g. example.com/sitemap.xml
 
             foreach ($locale_urls as $locale => $locale_url) {
@@ -137,17 +148,6 @@ class SitemapService extends BaseApplicationComponent
                 }
             }
         }
-        else {
-            // Render sitemap for one specific locale only (single locale domain), e.g. example.de/sitemap.xml
-            
-            $url = $this->addUrl($element->url, $element->dateUpdated, $changefreq, $priority);
-
-            if($alternateUrls) {
-                foreach ($locale_urls as $locale => $locale_url) {
-                    $url->addAlternateUrl($locale, $locale_url);
-                }
-            }
-        }
     }
 
     /**
@@ -157,7 +157,7 @@ class SitemapService extends BaseApplicationComponent
      * @param string       $changefreq
      * @param string       $priority
      */
-    public function addSection(SectionModel $section, $changefreq = null, $priority = null, $includeiffield = null, $allLocales = false, $alternateUrls = false)
+    public function addSection(SectionModel $section, $changefreq = null, $priority = null, $includeiffield = null, $currentLocaleOnly = false, $alternateUrls = false)
     {
         $criteria = craft()->elements->getCriteria(ElementType::Entry);
         $criteria->section = $section;
@@ -165,7 +165,7 @@ class SitemapService extends BaseApplicationComponent
             $criteria->$includeiffield = 1;
         }
         foreach ($criteria->find(['limit' => -1]) as $element) {
-            $this->addElement($element, $changefreq, $priority, $allLocales, $alternateUrls);
+            $this->addElement($element, $changefreq, $priority, $currentLocaleOnly, $alternateUrls);
         }
     }
 
@@ -176,14 +176,14 @@ class SitemapService extends BaseApplicationComponent
      * @param string             $changefreq
      * @param string             $priority
      */
-    public function addCategoryGroup(CategoryGroupModel $categoryGroup, $changefreq = null, $priority = null, $allLocales = false, $alternateUrls = false)
+    public function addCategoryGroup(CategoryGroupModel $categoryGroup, $changefreq = null, $priority = null, $currentLocaleOnly = false, $alternateUrls = false)
     {
         $criteria = craft()->elements->getCriteria(ElementType::Category);
         $criteria->group = $categoryGroup->handle;
 
         $categories = $criteria->find(['limit' => -1]);
         foreach ($categories as $category) {
-            $this->addElement($category, $changefreq, $priority, $allLocales, $alternateUrls);
+            $this->addElement($category, $changefreq, $priority, $currentLocaleOnly, $alternateUrls);
         }
     }
 
