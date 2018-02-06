@@ -17,7 +17,7 @@ class SitemapPlugin extends BasePlugin
      */
     public function getVersion()
     {
-        return '1.1.0';
+        return '1.2.0';
     }
 
     /**
@@ -43,6 +43,8 @@ class SitemapPlugin extends BasePlugin
     {
         return array(
             'sections' => array(),
+            'addAlternateUrls' => array(AttributeType::Bool, 'default' => true),
+            'currentLocaleOnly' => array(AttributeType::Bool, 'default' => false),
         );
     }
 
@@ -83,6 +85,9 @@ class SitemapPlugin extends BasePlugin
                 );
             }
         }
+
+        $settings['currentLocaleOnly'] = $input['currentLocaleOnly'] == '1';
+        $settings['addAlternateUrls'] = $input['addAlternateUrls'] == '1';
 
         // Return the parsed settings ready for the database
         return $settings;

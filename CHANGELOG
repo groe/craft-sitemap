@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and starting with version 1.0.0 this project adheres to
 [Semantic Versioning](http://semver.org/).
 
+## [1.2.0] - 2018-02-06
+
+### Added
+- Added options to configure multi-locale handling
+
+### Improved
+- Sort elements by priority descending
+
 ## [1.1.0] - 2017-05-11
 
 ### Added

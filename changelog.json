@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.2.0",
+    "downloadUrl": "https://github.com/groe/craft-sitemap/archive/v1.2.0.zip",
+    "date": "2018-02-06T13:30:00+01:00",
+    "notes": [
+      "[Added] Added options to configure multi-locale handling",
+      "[Improved] Sort elements by priority descending"
+    ]
+  },
+  {
     "version": "1.1.0",
     "downloadUrl": "https://github.com/groe/craft-sitemap/archive/v1.1.0.zip",
     "date": "2017-05-11T13:58:00+01:00",
