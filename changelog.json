@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.2.2",
+    "downloadUrl": "https://github.com/groe/craft-sitemap/archive/v1.2.2.zip",
+    "date": "2018-02-18T13:00:00+01:00",
+    "notes": [
+      "[Fixed] Fixed a bug that prevented saving settings when only one locale is present"
+    ]
+  },
+  {
     "version": "1.2.1",
     "downloadUrl": "https://github.com/groe/craft-sitemap/archive/v1.2.1.zip",
     "date": "2018-02-06T13:40:00+01:00",
