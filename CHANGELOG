@@ -5,9 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and starting with version 1.0.0 this project adheres to
 [Semantic Versioning](http://semver.org/).
 
+## [1.2.2] - 2018-02-18
+
+### Fixed
+- Fixed a bug that prevented saving settings when only one locale is present
+
 ## [1.2.1] - 2018-02-06
 
-### Added
+### Fixed
 - Fixed locale handling
 
 ## [1.2.0] - 2018-02-06
