@@ -86,8 +86,8 @@ class SitemapPlugin extends BasePlugin
             }
         }
 
-        $settings['currentLocaleOnly'] = $input['currentLocaleOnly'] == '1';
-        $settings['addAlternateUrls'] = $input['addAlternateUrls'] == '1';
+        $settings['currentLocaleOnly'] = isset($input['currentLocaleOnly']) && $input['currentLocaleOnly'] == '1';
+        $settings['addAlternateUrls'] = isset($input['addAlternateUrls']) && $input['addAlternateUrls'] == '1';
 
         // Return the parsed settings ready for the database
         return $settings;
