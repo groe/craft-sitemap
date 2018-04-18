@@ -5,6 +5,16 @@ namespace Craft;
 class SitemapPlugin extends BasePlugin
 {
     /**
+     * {@inheritdoc} IPlugin::init()
+     */
+    public function init()
+    {
+        if (craft()->request->isCpRequest()) {
+            craft()->templates->includeCssResource('sitemap/settings.css');
+        }
+    }
+
+    /**
      * {@inheritdoc} IPlugin::getName()
      */
     public function getName()
