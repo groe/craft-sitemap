@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.2.3",
+    "downloadUrl": "https://github.com/groe/craft-sitemap/archive/v1.2.3.zip",
+    "date": "2018-04-18T10:15:00+02:00",
+    "notes": [
+      "[Fixed] Limit width of include-if column in settings"
+    ]
+  },
+  {
     "version": "1.2.2",
     "downloadUrl": "https://github.com/groe/craft-sitemap/archive/v1.2.2.zip",
     "date": "2018-02-18T13:00:00+01:00",

@@ -38,12 +38,12 @@
   Choose which sections should be included in the sitemap.
 </p>
 
-<table class="data fullwidth">
+<table class="data fullwidth sitemap-sections-table">
   <thead>
     <th>{{ 'Enabled'|t }}</th>
     <th>{{ 'Section'|t }} </th>
     <th>{{ 'URL Format'|t }}</th>
-    <th>{{ 'Include if...'|t }}</th>
+    <th class="include-if-column">{{ 'Include if...'|t }}</th>
     <th>{{ 'Entries'|t }}</th>
     <th>{{ 'Change Frequency'|t }}</th>
     <th>{{ 'Priority'|t }}</th>
@@ -68,7 +68,7 @@
             {{ section.urlFormat }}
           {%- endif -%}
         </td>
-        <td>
+        <td class="include-if-column">
           {{- forms.selectField({
             name: "includeiffield[#{section.id}]",
             options: includeIfFieldOptions,

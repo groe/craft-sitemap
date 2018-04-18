@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and starting with version 1.0.0 this project adheres to
 [Semantic Versioning](http://semver.org/).
 
+## [1.2.3] - 2018-04-18
+
+### Fixed
+- Limit width of include-if column in settings
+
 ## [1.2.2] - 2018-02-18
 
 ### Fixed

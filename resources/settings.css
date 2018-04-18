@@ -1,0 +1,7 @@
+.sitemap-sections-table .include-if-column {
+  max-width: 10vw;
+}
+
+.sitemap-sections-table .include-if-column select {
+  width: 100%;
+}
