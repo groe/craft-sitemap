@@ -121,3 +121,22 @@
   }) }}
 
 {% endif %}
+
+<h2>Cache Settings</h2>
+
+{{ forms.lightswitchField({
+    label:        "Enable Caching",
+    name:         "cache",
+    instructions: "Enable caching of the sitemap XML.",
+    on:           settings.cache,
+    errors:       settings.getErrors('cache')
+  }) }}
+
+{{ forms.textField({
+    label:        "Cache Duration",
+    name:         "cacheDuration",
+    size:         10,
+    instructions: "The amount of time in seconds to cache the sitemap, defaults to 43200 (12 hours).",
+    value:        settings.cacheDuration,
+    errors:       settings.getErrors('cacheDuration')
+  }) }}

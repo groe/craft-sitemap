@@ -55,6 +55,8 @@ class SitemapPlugin extends BasePlugin
             'sections' => array(),
             'addAlternateUrls' => array(AttributeType::Bool, 'default' => true),
             'currentLocaleOnly' => array(AttributeType::Bool, 'default' => false),
+            'cache' => array(AttributeType::Bool, 'default' => true),
+            'cacheDuration' => array(AttributeType::Number, 'default' => 43200),
         );
     }
 
@@ -98,6 +100,8 @@ class SitemapPlugin extends BasePlugin
 
         $settings['currentLocaleOnly'] = isset($input['currentLocaleOnly']) && $input['currentLocaleOnly'] == '1';
         $settings['addAlternateUrls'] = isset($input['addAlternateUrls']) && $input['addAlternateUrls'] == '1';
+        $settings['cache'] = isset($input['cache']) && $input['cache'] == '1';
+        $settings['cacheDuration'] = isset($input['cacheDuration']) && is_numeric($input['cacheDuration']) ? $input['cacheDuration'] : $settings['cacheDuration']['default'];
 
         // Return the parsed settings ready for the database
         return $settings;

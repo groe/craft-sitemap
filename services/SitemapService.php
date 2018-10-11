@@ -42,6 +42,13 @@ class SitemapService extends BaseApplicationComponent
     {
         $settings = $this->pluginSettings;
 
+        $cacheKey = craft()->request->serverName . '-sitemap-xml';
+        $cacheEnabled = !craft()->config->get('devMode') && $settings['cache'];
+
+        if ($cacheEnabled && $xml = craft()->cache->get($cacheKey)) {
+            return $xml;
+        }
+
         // Loop through and add the sections checked in the plugin settings
         foreach ($this->sectionsWithUrls as $section) {
             if (!empty($settings['sections'][$section->id])) {
@@ -85,7 +92,13 @@ class SitemapService extends BaseApplicationComponent
             $urlset->appendChild($urlElement);
         }
 
-        return $document->saveXML();
+        $xml = $document->saveXML();
+
+        if ($cacheEnabled) {
+            craft()->cache->set($cacheKey, $xml, $settings['cacheDuration']);
+        }
+
+        return $xml;
     }
 
     /**
